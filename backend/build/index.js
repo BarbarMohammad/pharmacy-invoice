@@ -16,7 +16,7 @@ if (!fs_1.default.existsSync('uploads')) {
 }
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: 'https://pharmacy-invoice-ui.vercel.app/',
+    origin: 'https://pharmacy-invoice-ui.vercel.app',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type']
 }));
