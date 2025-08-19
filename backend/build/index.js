@@ -11,13 +11,12 @@ const xlsx_1 = __importDefault(require("xlsx"));
 const discrepancyChecker_1 = require("./utils/discrepancyChecker");
 const fs_1 = __importDefault(require("fs"));
 console.log("Starting backend...");
-// Ensure uploads directory exists at runtime
 if (!fs_1.default.existsSync('uploads')) {
     fs_1.default.mkdirSync('uploads');
 }
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: ['https://pharmacy-frontend-umber.vercel.app','http://localhost:3000'],
+    origin: 'https://pharmacy-frontend-umber.vercel.app',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type']
 }));

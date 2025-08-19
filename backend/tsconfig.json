@@ -16,7 +16,7 @@
 
 {
   "compilerOptions": {
-    "rootDir": "api",        
+    "rootDir": "src",        
     "outDir": "build",
 
 
