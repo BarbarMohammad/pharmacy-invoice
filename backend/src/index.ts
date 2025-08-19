@@ -16,7 +16,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'https://pharmacy-invoice-ui.onrender.com',
+    origin: 'https://pharmacy-invoice-ui.vercel.app/',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type']
 }));
