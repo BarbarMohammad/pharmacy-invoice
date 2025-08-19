@@ -15,16 +15,11 @@ if (!fs_1.default.existsSync('uploads')) {
     fs_1.default.mkdirSync('uploads');
 }
 const app = (0, express_1.default)();
-
-
-//app.use(cors({ origin: true }));
-app.use((0, cors_1.default)
-({
-    origin: 'http://localhost:3000',
+app.use((0, cors_1.default)({
+    origin: 'https://pharmacy-invoice-ui.onrender.com',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type']
 }));
-
 const upload = (0, multer_1.default)({ dest: 'uploads/' });
 app.post('/api/upload', upload.single('invoice'), async (req, res) => {
     try {

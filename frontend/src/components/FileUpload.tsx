@@ -26,7 +26,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ setDiscrepancies }) => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:5000/api/upload',
+        'https://pharmacy-invoice-api.onrender.com/api/upload',
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
