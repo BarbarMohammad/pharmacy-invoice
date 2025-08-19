@@ -17,13 +17,14 @@ if (!fs_1.default.existsSync('uploads')) {
 const app = (0, express_1.default)();
 
 
-app.use(cors({ origin: true }));
-// app.use((0, cors_1.default)
-// ({
-//     origin: 'http://localhost:3000',
-//     methods: ['GET', 'POST', 'OPTIONS'],
-//     allowedHeaders: ['Content-Type']
-// })
+//app.use(cors({ origin: true }));
+app.use((0, cors_1.default)
+({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type']
+}));
+
 const upload = (0, multer_1.default)({ dest: 'uploads/' });
 app.post('/api/upload', upload.single('invoice'), async (req, res) => {
     try {
@@ -42,7 +43,7 @@ app.post('/api/upload', upload.single('invoice'), async (req, res) => {
         res.status(500).json({ error: 'Processing failed', details: err });
     }
 });
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => {
-//     console.log(`Backend running on port ${PORT}`);
-// });
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Backend running on port ${PORT}`);
+});
