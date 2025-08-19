@@ -1,0 +1,160 @@
+Pharmacy Invoice Discrepancy
+
+
+
+Backend
+
+It is built with Express (v5) + TypeScript.
+
+
+Structure
+
+backend/
+├── build/                  
+│   └── utils/               
+│       ├── discrepancyChecker.js
+│       └── index.js
+├── node_modules/            
+├── src/                    
+│   ├── utils/             
+│   │   └── discrepancyChecker.ts   mismatches
+│   └── index.ts             
+├── uploads/               
+├── package.json            
+├── package-lock.json
+├── tsconfig.json     
+
+
+
+
+Tech Stack
+
+Runtime: Node.js
+Language: TypeScript
+Framework: Express 5
+Middleware: cors → Enable cross-origin requests
+            multer → Handle file uploads
+Utilities: xlsx → Read/write Excel files
+            axios → Make external HTTP requests
+
+
+Setup Instructions
+
+1. Install dependencies
+ $ npm install
+
+2. Development mode
+Start the server with ts-node (auto-reloads when code changes):
+ $ npm run dev
+Runs src/index.ts.
+
+3. Build and run (production)
+Compile TypeScript → JavaScript, then run:
+ $npm run build
+ $npm run start
+This runs the compiled build/index.js.
+
+
+
+NPM Scripts
+
+Script             Description
+npm run dev        Start backend in development mode (ts-node)
+npm run build      Compile TypeScript → JavaScript
+npm run start      Run the compiled backend server
+
+
+Configuration
+
+Uploads are stored in /uploads.
+Excel files are processed via SheetJS.
+Discrepancy checking logic is implemented in src/utils/discrepancyChecker.ts.
+
+
+API Endpoints              
+Method              Endpoint             Description
+GET                 /api/invoices        Fetch all invoices    
+POST                /api/invoices        Create a new invoice
+POST                /api/upload          Upload an Excel file (multer)
+GET                 /api/export          Export invoices as Excel
+GET                 /health              Health check (optional)
+
+
+Utilities
+src/utils/discrepancyChecker.ts
+
+Provides logic for validating and comparing invoices
+Useful for detecting mismatches between uploaded invoice files and existing records
+Exported functions can be used by routes/controllers
+
+
+
+
+Frontend
+
+
+It is built with React + TypeScript and provides a user-friendly interface to:
+Manage invoices
+Upload Excel files
+Export invoice data
+Interact with the backend API
+
+
+Project Structure
+
+frontend/
+├── public/                 
+├── src/                   
+│   ├── components/        
+│   ├── pages/             
+│   ├── hooks/             
+│   ├── App.tsx            
+│   └── index.tsx          
+├── package.json
+├── package-lock.json
+├── tsconfig.json          
+
+
+Tech Stack
+
+React 19 + TypeScript
+React Router v6 – Client-side routing
+Axios – HTTP client for backend communication
+SheetJS (xlsx) – Excel import/export support
+Jest + React Testing Library – Unit testing
+
+
+
+Installation & Setup
+
+1. Install dependencies
+ $ npm install
+
+2. Development server
+ $ npm start
+
+3. Production build
+ $ npm run build
+
+
+NPM Scripts
+
+Script              Description
+npm start           Run development server (CRA)
+npm run build       Build the frontend for production
+npm test            Run tests using React Testing Library + Jest
+npm run eject       Eject CRA config (not recommended)
+
+
+API Integration
+
+The frontend communicates with the backend via Axios.
+ 
+Update the API base URL in code
+
+Typical calls include:
+Fetching invoices
+Uploading Excel files
+Exporting invoice data
+
+
