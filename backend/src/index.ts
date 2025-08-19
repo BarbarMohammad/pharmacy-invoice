@@ -14,11 +14,13 @@ if (!fs.existsSync('uploads')) {
 
 const app = express();
 
-app.use(cors({
-    origin: 'https://pharmacy-frontend-umber.vercel.app',
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type']
-}));
+app.use(cors({ origin: true }));
+
+// app.use(cors({
+//     origin: 'http://localhost:3000',
+//     methods: ['GET', 'POST', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type']
+// }));
 
 const upload = multer({ dest: 'uploads/' });
 app.post('/api/upload', upload.single('invoice'), async (req, res) => {
