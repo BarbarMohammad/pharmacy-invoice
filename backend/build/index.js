@@ -42,7 +42,7 @@ app.post('/api/upload', upload.single('invoice'), async (req, res) => {
         res.status(500).json({ error: 'Processing failed', details: err });
     }
 });
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Backend running on port ${PORT}`);
-});
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//     console.log(`Backend running on port ${PORT}`);
+// });
